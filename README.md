@@ -1,6 +1,6 @@
 # zbmessenger
 
-Script that takes in a Bacula formatted email via stdin, extracts the information relevant to the Bacula job and then sends the data to a Zabbix Server.
+Script that reads a Bacula formatted email via stdin, extracts the information relevant to the Bacula job and then sends the data to a Zabbix Server.
 
 Requires a Bacula template to exist on the Zabbix server.
 
