@@ -28,3 +28,4 @@ Requires a Bacula template to exist on the Zabbix server.
 ## GPLv3 License
 * [GPLv3](http://www.gnu.org/licenses/).
 
+More information can be found [here](https://www.labeightyfour.com/2019/10/07/monitor-bacula-from-zabbix-using-postfix-and-python-part-2/)
