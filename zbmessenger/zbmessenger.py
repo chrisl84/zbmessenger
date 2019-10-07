@@ -410,18 +410,23 @@ class ZabbixParameters:
 
     def elapsed_time(self, value):
         try:
-            elapsed_time = int(value[0])
-            spec = self._time_specification.get(value[1], -1)
-            if spec == -1:
-                self._logger.warning("Unknown time specification for elapsed time : %s",
-                                     value)
+            if value is None or len(value) == 0:
                 return None
-            else:
-                elapsed_time *= spec
-                return elapsed_time
+            elapsed_time = 0
+            it = iter(value)
+            for item in it:
+                time = int(item)
+                spec = self._time_specification.get(next(it), -1)
+                if spec == -1:
+                    self._logger.warning("Unknown time specification for elapsed time : %s",
+                                         value)
+                    return None
+                else:
+                    elapsed_time += time * spec
+            return elapsed_time
         except Exception as error:
             self._logger.warning(
-                "End Time is not specified correctly %s.", value)
+                "Elapsed time is not specified correctly %s.", value)
             return None
 
     def priority(self, value):
